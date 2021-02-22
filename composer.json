@@ -14,7 +14,7 @@
         "ext-json": "*",
         "amphp/parallel": "^1.4",
         "amphp/parallel-functions": "^1.0",
-        "doctrine/annotations": "^1.10",
+        "doctrine/annotations": "^1.12",
         "guzzlehttp/guzzle": "6.5.5",
         "guzzlehttp/psr7": "^1.6",
         "jenssegers/proxy": "^3.1",
