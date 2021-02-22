@@ -22,6 +22,6 @@ class WebhookController extends AbstractController
         $challenge = $request->request->get('hub_challenge');
         $verifyToken = $request->request->get('hub_verify_token');
 
-        return new Response($challenge);
+        return new Response($verifyToken);
     }
 }
