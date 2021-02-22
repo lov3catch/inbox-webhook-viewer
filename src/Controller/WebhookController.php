@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 
+use Sentry\FlushableClientInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,9 +14,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class WebhookController extends AbstractController
 {
-    public function instagram(Request $request): Response
+    public function instagram(Request $request, FlushableClientInterface $sentry): Response
     {
         if ($request->isMethod('POST')) {
+            $sentry->captureMessage('WEBHOOK: ' . PHP_EOL . $request->getContent());
             return new Response('OK');
         }
 
