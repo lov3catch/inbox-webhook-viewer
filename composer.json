@@ -1,18 +1,42 @@
 {
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:lov3catch/psr7.git"
+        }
+    ],
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4.7",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
+        "amphp/parallel": "^1.4",
+        "amphp/parallel-functions": "^1.0",
+        "doctrine/annotations": "^1.10",
+        "guzzlehttp/guzzle": "6.5.5",
+        "guzzlehttp/psr7": "^1.6",
+        "jenssegers/proxy": "^3.1",
+        "laminas/laminas-diactoros": "^2.4",
+        "nyholm/psr7": "dev-support_serialize",
+        "sentry/sentry-symfony": "^3.5",
         "symfony/apache-pack": "^1.0",
-        "symfony/console": "5.2.*",
-        "symfony/dotenv": "5.2.*",
+        "symfony/console": "5.1.*",
+        "symfony/dotenv": "5.1.*",
         "symfony/flex": "^1.3.1",
-        "symfony/framework-bundle": "5.2.*",
-        "symfony/yaml": "5.2.*"
+        "symfony/framework-bundle": "5.1.*",
+        "symfony/messenger": "5.1.*",
+        "symfony/property-access": "5.1.*",
+        "symfony/psr-http-message-bridge": "^2.0",
+        "symfony/serializer": "5.1.*",
+        "symfony/yaml": "5.1.*"
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "^1.14",
+        "ramsey/composer-repl": "^1.1",
+        "symfony/maker-bundle": "^1.21",
+        "symfony/phpunit-bridge": "^5.1"
     },
     "config": {
         "optimize-autoloader": true,
@@ -32,21 +56,22 @@
         }
     },
     "replace": {
+        "paragonie/random_compat": "2.*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*"
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php71": "*",
+        "symfony/polyfill-php70": "*",
+        "symfony/polyfill-php56": "*"
     },
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "security-checker security:check": "script"
         },
-        "post-install-cmd": [
-            "@auto-scripts"
-        ],
-        "post-update-cmd": [
-            "@auto-scripts"
-        ]
+        "post-install-cmd": [],
+        "post-update-cmd": []
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -54,7 +79,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.2.*"
+            "require": "5.1.*"
         }
     }
 }
