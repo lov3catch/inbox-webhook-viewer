@@ -17,6 +17,7 @@ class WebhookController extends AbstractController
     public function instagram(Request $request, FlushableClientInterface $sentry): Response
     {
         if ($request->isMethod('POST')) {
+            var_dump($request->getContent());
             $sentry->captureMessage('WEBHOOK: ' . PHP_EOL . $request->getContent());
             return new Response('OK');
         }
